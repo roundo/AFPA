@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Produits</title>
+</head>
+<body>
+
+	<h1>Liste de produits</h1>
+	<label>Produit </label>
+	<input type="text" id="prod">
+	<br><br>
+	<label>Prix </label>
+	<input type="text" id="prix">
+	<br><br>
+	<button onclick="prod()">Ajouter</button>
+	
+	<p>
+		Produit : <span id="Produit"></span>
+		<br>
+		prix : <span id="prixProd"></span>
+	</p>
+	<p>Prix total : <span id="pt">0</span></p>
+		
+	<script type="text/javascript">
+		
+		function prod(){
+			var prod = getId('prod').value;
+			var prix = parseFloat( getId('prix').value );
+
+			getId('Produit').innerHTML += prod+" <br>";
+			getId('prixProd').innerHTML += prix+" <br>";
+			var pt = parseFloat( getId('pt').innerHTML );
+			getId('pt').innerHTML = (prix+pt);
+		}
+
+
+		function getId(id){
+			return document.getElementById(id);
+		}
+
+	</script>
+
+</body>
+</html>

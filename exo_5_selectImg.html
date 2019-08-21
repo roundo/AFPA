@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		ul{display: flex; flex-wrap: wrap; }
+		li{padding: 10px; list-style: none;}
+		.selected{border: 3px solid #000; background-color: red}
+	</style>
+</head>
+<body>
+
+	<p id="listPhoto"></p>
+
+	<div>Vous avez selectionné <span id="selection">0</span></div>
+
+	<script type="text/javascript">
+		
+		document.write("<ul id='listPhoto'>");
+			
+		for(var i=1; i<10; i++){
+			document.write("<li><img src=img/"+i+".jpg></li>");
+		}
+		document.write("</ul>");
+
+		var c = 0;
+		var photos = document.querySelectorAll('#listPhoto li');
+		console.log(photos);
+
+		for(var i=0; i<photos.length; i++){
+			photos[i].addEventListener('click', clickPhoto);
+		}
+
+		function clickPhoto(){
+			var t = this.classList.toggle('selected');
+			if(t)
+				c++;
+			else
+				c--;
+			document.getElementById('selection').innerHTML = c;
+		}
+
+		
+	</script>
+
+</body>
+</html>

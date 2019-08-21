@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JS</title>
+</head>
+<body>
+	<h1>mon h1</h1>
+	<label>Valeur 1 </label>
+	<input type="text" name="" id="val1">
+	<br>
+	<label>Valeur 2</label>
+	<input type="text" name="" id="val2">
+	<br>
+	<label>Résultat : </label>
+	<span class="resultat"></span>
+	<br><br>
+
+	<button onclick="addition()">somme</button>
+
+	<script type="text/javascript">
+		
+		function addition(){
+			var v1 = parseInt( getId('val1').value );
+			var v2 = parseInt( getId('val2').value );
+			document.getElementsByClassName('resultat')[0].innerHTML = v1+v2;		
+		}
+
+		function getId(id){
+			return document.getElementById(id);
+		}
+	</script>
+
+
+</body>
+</html>

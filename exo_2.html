@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Poids</title>
+</head>
+<body>
+
+	<h1>Calcul de poids</h1>
+	<form><label>Taille : </label>
+		<input type="text" name="" id="taille">
+		<span id="t"></span>
+		<br><br>
+		<label>Homme</label>
+		<input type="radio" name="sexe" id="homme">
+		<br><br>
+		<label>Femme</label>
+		<input type="radio" name="sexe" id="femme">
+		<br>
+		<span id="r"></span>
+		<br>
+		<p>Résultat : <span id="resultat"></span> </p>
+		<input type="button" value="Valider" onclick="poid()">
+	</form>
+
+	<script type="text/javascript">
+		var res = '';
+		var t = getId('t');
+		var r = getId('r')
+		var bool = false,
+				bool2 = false;
+
+		function poid(){
+			var taille = parseFloat( getId('taille').value );
+
+			if( !taille ){
+				t.innerHTML = "champ vide";
+				t.style.color = 'red';
+			}
+			else{
+				t.innerHTML = "";
+				bool2 = true;
+			}
+			if( !getId('homme').checked && !getId('femme').checked ){
+				r.innerHTML = "Cochez une case";
+				r.style.color = 'red';
+			}
+			else{
+				r.innerHTML = "";
+				bool = true;
+			}
+
+			if( getId('homme').checked ){
+				res = taille - 100-((taille-150)/4);
+			}else{
+				res = taille - 100-((taille-150)/2.5);
+			}
+
+			if( bool && bool2 )
+				document.getElementById('resultat').innerHTML = res;
+		}
+
+		function getId(id){
+			return document.getElementById(id);
+		}
+
+	</script>
+
+</body>
+</html>

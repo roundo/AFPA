@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.rectangle{width: 50px; height: 50px; background-color: red; border: 1px solid}
+		.vert{width: 50px; height: 50px; background-color: green; border: 1px solid;}
+	</style>
+</head>
+<body>
+
+	<div class="rectangle">rectangle</div>
+
+	<script type="text/javascript">
+		var elt = document.getElementsByClassName('rectangle');
+		elt = elt[0];
+		console.log(elt);
+
+		elt.addEventListener('click', function(){
+			console.log( elt.classList.contains('rectangle') );
+			elt.classList.toggle('vert');
+			console.log(elt);
+		});
+	</script>
+
+</body>
+</html>
